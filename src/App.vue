@@ -11,28 +11,21 @@ function warn(message, event) {
   alert(message)
 }
 
+const handleKeyup = (event) => {
+  if (event.altKey && event.key === 'Enter') {
+    clear();
+  }
+};
+
+const clear = () => {
+  console.log('Clearing the input!');
+};
+
 </script>
 
 <template>
   <div>
-    <!-- 單擊事件將停止傳遞 -->
-    <a @click.stop="doThis"></a>
-
-    <!-- 提交事件將不再重新加載頁面 -->
-    <form @submit.prevent="onSubmit"></form>
-
-    <!-- 修飾語可以使用鏈式書寫 -->
-    <a @click.stop.prevent="doThat"></a>
-
-    <!-- 也可以只有修飾符 -->
-    <form @submit.prevent></form>
-
-    <!-- 僅當 event.target 是元素本身時才會觸發事件處理器 -->
-    <!-- 例如：事件處理器不來自子元素 -->
-    <div @click.self="doThat">...</div>
-
-    <input type="text" @keyup.alt.enter="clear">
-
+    <input type="text" @keyup="handleKeyup">
   </div>
 </template>
 
