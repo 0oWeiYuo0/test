@@ -30,6 +30,9 @@ function warn(message, event) {
     <!-- 僅當 event.target 是元素本身時才會觸發事件處理器 -->
     <!-- 例如：事件處理器不來自子元素 -->
     <div @click.self="doThat">...</div>
+
+    <input type="text" @keyup.alt.enter="clear">
+
   </div>
 </template>
 
